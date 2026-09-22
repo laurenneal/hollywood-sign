@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'">
+<title>The Hollywood SIGN</title>
+<meta name="description" content="A public-data studio lot: shoot days, jobs, box office, and news as an illustrated visitor map. Every crowd is one published number.">
+<meta name="theme-color" content="#161c1f">
+<link rel="canonical" href="https://laurenneal.github.io/hollywood-sign/scene/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Hollywood SIGN">
+<meta property="og:title" content="The Hollywood SIGN">
+<meta property="og:description" content="A public-data studio lot: shoot days, jobs, box office, and news as an illustrated visitor map. Every crowd is one published number.">
+<meta property="og:url" content="https://laurenneal.github.io/hollywood-sign/scene/">
+<meta property="og:image" content="https://laurenneal.github.io/hollywood-sign/scene/assets/og-preview.png">
+<meta property="og:image:alt" content="Illustrated studio lot visitor map — fixed capture hour=14, t=0, fixture signals (preview date labelled in the scene chrome).">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Hollywood SIGN">
+<meta name="twitter:description" content="A public-data studio lot: shoot days, jobs, box office, and news as an illustrated visitor map.">
+<meta name="twitter:image" content="https://laurenneal.github.io/hollywood-sign/scene/assets/og-preview.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ink:#1a2022; --paper:#efe9d8; --panel:#fffaf0; --line:#cfc6ae;
+    --lamp:#c3302a; --tower:#2b6963; --tower-lite:#4d9089; --stale:#8b9498;
+    --masthead:rgba(16,20,22,.92); --chrome:#161c1f;
+    --font-display:"Barlow Condensed", sans-serif;
+    --font-body:"IBM Plex Mono", ui-monospace, monospace;
+    --fs-display:34px; --fs-title:22px; --fs-body:16px; --fs-meta:14px; --fs-num:15px;
+  }
+  html, body { margin:0; height:100%; background:var(--chrome); color:var(--ink); font-family:var(--font-body); font-size:var(--fs-body); line-height:1.5; }
+  #stage { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; }
+  canvas { display:block; touch-action:none; }
+  /* Solid masthead so title/index never cross the sky (audit P1 readability). */
+  #hud {
+    position:fixed; left:12px; top:10px; z-index:3;
+    display:flex; flex-wrap:wrap; column-gap:14px; row-gap:4px; align-items:baseline;
+    pointer-events:none; max-width:calc(100vw - 120px);
+    padding:10px 16px 12px; background:var(--masthead); border:1px solid #2c3538; border-radius:8px;
+    box-shadow:0 8px 28px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,250,240,.06);
+  }
+  #hud .name { font-family:var(--font-display); font-weight:700; font-size:var(--fs-display); letter-spacing:.02em; color:var(--paper); text-transform:uppercase; line-height:1; }
+  #hud .idx { font-size:var(--fs-num); color:#d4c4a8; }
+  #hud .note { flex-basis:100%; font-size:var(--fs-meta); color:#a8b0b3; letter-spacing:.03em; line-height:1.45; margin-top:2px; }
+  #hud .note:empty { display:none; }
+  #hud .note .premise { color:#cfc6ae; }
+  #hud .note .dot { color:var(--tower-lite); }
+  #hud .note .dot.stale { color:var(--lamp); }
+  #hud .note .badge-stale, #hud .note .badge-partial { color:var(--lamp); text-transform:uppercase; letter-spacing:.08em; font-size:12px; }
+  #hud.feeds-warn .note, #hud .note.warn { color:#e0c9a0; }
+  body.story #hud .note { display:none; }
+  #legend { position:fixed; left:14px; bottom:14px; max-width:min(580px, calc(100vw - 28px)); background:var(--panel); color:var(--ink);
+            border:1px solid var(--line); border-radius:8px; padding:14px 16px; font-size:var(--fs-body); line-height:1.5; display:none;
+            box-shadow:0 12px 36px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,250,240,.55); }
+  #legend b { font-family:var(--font-display); font-size:var(--fs-title); text-transform:uppercase; letter-spacing:.03em; display:block; margin-bottom:6px; }
+  /* Source credit = nearly invisible footnote unless you’re looking. Still in the DOM. */
+  #legend .src { color:#8b9498; font-size:13px; margin-top:10px; line-height:1.35; letter-spacing:.02em; opacity:.8; }
+  #legend .more { margin-top:8px; font-size:14px; }
+  #legend .more a { color:var(--tower); }
+  #legend .stale { color:var(--lamp); }
+  #status { position:fixed; right:64px; top:14px; font-size:13px; color:#cfc6ae; text-align:right; pointer-events:none; line-height:1.4; }
+  #status a { color:#cfc6ae; }
+  /* the About button (scene/about.js builds it) and its panel */
+  /* first-visit card (scene/intro.js) */
+  #intro { position:fixed; inset:0; z-index:6; background:rgba(16,20,22,.62); display:flex; align-items:center; justify-content:center; padding:16px; animation:intro-in .22s ease-out; }
+  #intro.closing { opacity:0; transition:opacity .18s ease-in; }
+  #intro .card { width:min(560px, 100%); background:var(--panel); color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:22px 24px 20px; box-shadow:0 24px 60px rgba(0,0,0,.5); font-family:"IBM Plex Mono", monospace; font-size:14px; line-height:1.5; }
+  #intro .eyebrow { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#5b6467; }
+  #intro h2 { font-family:"Barlow Condensed", sans-serif; font-weight:700; font-size:44px; line-height:1; margin:6px 0 10px; text-transform:uppercase; letter-spacing:.01em; }
+  #intro .lede { margin:0 0 12px; }
+  #intro ul { margin:0 0 16px; padding-left:18px; }
+  #intro li { margin-bottom:6px; }
+  #intro .row { display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; }
+  #intro button { font-family:"Barlow Condensed", sans-serif; font-weight:600; font-size:20px; letter-spacing:.03em; text-transform:uppercase; border-radius:5px; padding:8px 18px; cursor:pointer; border:1px solid var(--tower); }
+  #intro .start { background:var(--tower); color:#efe9d8; }
+  #intro .more { background:transparent; color:var(--tower); }
+  #intro button:focus-visible { outline:none; box-shadow:0 0 0 2px var(--panel), 0 0 0 4px #4d9089; }
+  #intro .fine { flex-basis:100%; font-size:13px; color:#5b6467; }
+  #intro .fine a { color:#2b6963; }
+  @keyframes intro-in { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce) { #intro { animation:none; } }
+  @media (max-width:640px) { #intro .card { padding:18px 16px 16px; font-size:13.5px; } #intro h2 { font-size:36px; } }
+  body.story #intro, body.bare #intro { display:none !important; }
+  #about-btn, #numbers-btn { position:fixed; right:14px; z-index:4; width:48px; height:48px; padding:0; border-radius:50%; border:1px solid #cfc6ae;
+               background:rgba(16,20,22,.78); color:#efe9d8; font-family:"Barlow Condensed", sans-serif; font-weight:700; font-size:26px; line-height:1;
+               cursor:pointer; -webkit-tap-highlight-color:transparent; }
+  #about-btn { top:12px; }
+  #numbers-btn { top:70px; }
+  #about-btn:hover, #about-btn:focus-visible, #numbers-btn:hover, #numbers-btn:focus-visible { background:#2b6963; border-color:#4d9089; outline:none; }
+  #about-btn:focus-visible, #numbers-btn:focus-visible { box-shadow:0 0 0 2px #101416, 0 0 0 4px #4d9089; }
+  #about-btn[aria-expanded="true"], #numbers-btn[aria-expanded="true"] { background:#2b6963; }
+  /* Zoom + / − / Reset — inside #viewport with Pause/Explore */
+  #zoom { position:absolute; right:12px; top:12px; z-index:4; display:flex; flex-direction:column; gap:8px; }
+  #zoom button { width:48px; height:48px; padding:0; border-radius:8px; border:1px solid #cfc6ae;
+                 background:rgba(16,20,22,.78); color:#efe9d8; font-family:"Barlow Condensed", sans-serif; font-weight:700; font-size:28px; line-height:1;
+                 cursor:pointer; -webkit-tap-highlight-color:transparent; }
+  #zoom button:hover, #zoom button:focus-visible { background:#2b6963; border-color:#4d9089; outline:none; }
+  #zoom button:focus-visible { box-shadow:0 0 0 2px #101416, 0 0 0 4px #4d9089; }
+  #zoom .zreset { font-size:22px; }
+  /* Pause/Explore live inside #viewport (absolute) so phone SELECTED never eats them */
+  #pause-btn { position:absolute; right:12px; top:176px; z-index:4; min-width:48px; height:48px; padding:0 10px;
+               border-radius:8px; border:1px solid #cfc6ae; background:rgba(16,20,22,.55); color:#efe9d8;
+               font-family:"Barlow Condensed", sans-serif; font-weight:700; font-size:15px; letter-spacing:.04em;
+               text-transform:uppercase; cursor:pointer; }
+  #pause-btn.on { background:#2b6963; border-color:#4d9089; }
+  #pause-btn:hover { background:rgba(24,30,34,.92); border-color:#e8dfc8; }
+  #pause-btn:focus-visible { outline:none; box-shadow:0 0 0 2px rgba(16,20,22,.9), 0 0 0 4px #4d9089; }
+  #pause-btn.on:hover, #pause-btn.on:focus-visible { background:#245a55; border-color:#4d9089; box-shadow:none; }
+  #explore-btn { position:absolute; right:12px; top:232px; z-index:4; min-width:48px; height:48px; padding:0 10px;
+                 border-radius:8px; border:1px solid #cfc6ae; background:rgba(16,20,22,.55); color:#efe9d8;
+                 font-family:"Barlow Condensed", sans-serif; font-weight:700; font-size:14px; letter-spacing:.04em;
+                 text-transform:uppercase; cursor:pointer; }
+  #explore-btn.on { background:#2b6963; border-color:#4d9089; }
+  #explore-btn:hover { background:rgba(24,30,34,.92); border-color:#e8dfc8; }
+  #explore-btn:focus-visible { outline:none; box-shadow:0 0 0 2px rgba(16,20,22,.9), 0 0 0 4px #4d9089; }
+  #explore-btn.on:hover, #explore-btn.on:focus-visible { background:#245a55; border-color:#4d9089; box-shadow:none; }
+  @media (min-width:1101px) {
+    #about-btn, #numbers-btn { right: 354px; }
+  }
+  body.story #about-btn, body.bare #about-btn, body.story #about, body.bare #about,
+  body.story #numbers-btn, body.bare #numbers-btn, body.story #numbers, body.bare #numbers,
+  body.story #zoom, body.bare #zoom, body.story #pause-btn, body.bare #pause-btn,
+  body.story #explore-btn, body.bare #explore-btn { display:none !important; }
+  #about, #numbers { position:fixed; inset:0; z-index:5; background:rgba(16,20,22,.72); display:flex; align-items:flex-start; justify-content:center; padding:12px; overflow:hidden; }
+  #about[hidden], #numbers[hidden] { display:none; }
+  #about .panel, #numbers .panel { position:relative; width:min(720px, calc(100vw - 24px)); max-width:min(720px, calc(100vw - 24px)); max-height:calc(100vh - 24px); max-height:calc(100dvh - 24px);
+                  overflow:auto; overscroll-behavior:contain; -webkit-overflow-scrolling:touch; background:var(--panel); color:var(--ink); border:1px solid var(--line);
+                  border-radius:6px; padding:18px 22px 22px; font-size:14px; line-height:1.5; box-shadow:0 12px 40px rgba(0,0,0,.45); }
+  #about .panel:focus, #numbers .panel:focus { outline:none; }
+  #about .x, #numbers .x { position:absolute; right:10px; top:10px; width:40px; height:40px; padding:0; border:1px solid var(--line); border-radius:50%; background:var(--paper);
+              color:var(--ink); font-family:"Barlow Condensed", sans-serif; font-weight:700; font-size:26px; line-height:1; cursor:pointer; }
+  #about .x:hover, #about .x:focus-visible, #numbers .x:hover, #numbers .x:focus-visible { background:var(--tower); color:#efe9d8; border-color:var(--tower); outline:none; }
+  #about .x:focus-visible, #numbers .x:focus-visible { box-shadow:0 0 0 2px var(--panel), 0 0 0 4px #4d9089; }
+  #about h2, #numbers h2 { font-family:"Barlow Condensed", sans-serif; font-weight:700; font-size:32px; line-height:1; letter-spacing:.02em; text-transform:uppercase; margin:2px 48px 10px 0; }
+  #about h3 { font-family:"Barlow Condensed", sans-serif; font-weight:700; font-size:18px; letter-spacing:.04em; text-transform:uppercase; margin:16px 0 4px; color:#2b6963; }
+  #about h3.section { font-size:22px; color:var(--ink); margin-top:22px; padding-top:12px; border-top:1px solid var(--line); }
+  #about p, #numbers p { margin:0 0 8px; }
+  #about p.lede, #numbers p.lede { font-size:15px; }
+  #about p.noai { font-family:"Barlow Condensed", sans-serif; font-size:18px; letter-spacing:.02em; margin:10px 0 2px; }
+  #about p.noai b { color:var(--lamp); text-transform:uppercase; }
+  #about .small, #about .keys, #numbers .fine { font-size:12.5px; color:#5b6467; }
+  #about code { font-family:"IBM Plex Mono", ui-monospace, monospace; font-size:12px; background:#efe9d8; border:1px solid #e2d9c0; border-radius:3px; padding:0 4px; white-space:nowrap; }
+  #about ul, #numbers ul { list-style:none; margin:0 0 6px; padding:0; }
+  #about ul.legend li, #numbers ul.num-list li { display:grid; grid-template-columns:160px 1fr; column-gap:10px; row-gap:2px; padding:8px 0; border-top:1px solid #ebe4d0; }
+  #about ul.legend li:first-child, #numbers ul.num-list li:first-child { border-top:0; }
+  #about ul.legend li b, #numbers ul.num-list li b { font-family:"Barlow Condensed", sans-serif; font-size:17px; letter-spacing:.02em; text-transform:uppercase; grid-column:1; }
+  #about ul.legend li .tag, #numbers ul.num-list li .tag { grid-column:1; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#8b9498; }
+  #numbers ul.num-list li.deferred .tag { color:var(--tower); }
+  #numbers ul.num-list li.stale .tag, #numbers ul.num-list li.missing .tag { color:var(--lamp); }
+  #about ul.legend li .sig { grid-column:2; font-size:12px; color:#5b6467; }
+  #about ul.legend li .sig .fb { color:#8b9498; }
+  #about ul.legend li .rule, #numbers ul.num-list li .rule { grid-column:2; font-size:13.5px; }
+  #numbers ul.num-list li .src { grid-column:2; font-size:11px; color:#8b9498; line-height:1.35; opacity:.75; }
+  #about ul.legend li.soon { color:#5b6467; }
+  #about ul.legend li.deferred .tag { color:var(--tower); }
+  #about ul.attrib li { padding:4px 0; border-top:1px solid #ebe4d0; }
+  #about ul.attrib li:first-child { border-top:0; }
+  #about ul.attrib li b { font-family:"Barlow Condensed", sans-serif; font-size:15px; letter-spacing:.02em; text-transform:uppercase; margin-right:6px; }
+  #about ul.attrib li.soon { color:#5b6467; }
+  #about ul.attrib li .tag { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#8b9498; white-space:nowrap; }
+  #about a, #numbers a { color:var(--tower); }
+  #about kbd { font-family:"IBM Plex Mono", ui-monospace, monospace; font-size:11.5px; background:#efe9d8; border:1px solid #cfc6ae; border-bottom-width:2px; border-radius:3px; padding:0 4px; }
+  @media (max-width:640px){
+    #about, #numbers { padding:8px; }
+    #about .panel, #numbers .panel { padding:14px 14px 18px; max-height:calc(100vh - 16px); max-height:calc(100dvh - 16px); font-size:14.5px; }
+    #about h2, #numbers h2 { font-size:28px; }
+    #about ul.legend li, #numbers ul.num-list li { grid-template-columns:1fr; }
+    #about ul.legend li .sig, #about ul.legend li .rule, #about ul.legend li .tag,
+    #numbers ul.num-list li .rule, #numbers ul.num-list li .src, #numbers ul.num-list li .tag { grid-column:1; }
+  }
+  /* a pinned legend must not cover the timeline / tour: lift it while those show (never in story mode: the recorder places it) */
+  body:not(.story):has(#timeline:not([hidden])) #legend { bottom:84px; }
+  body.tour-on:not(.story) #legend { bottom:78px; }
+  body.tour-on:not(.story):has(#timeline:not([hidden])) #legend { bottom:128px; }
+  @media (max-width:720px){
+    body:not(.story):has(#timeline:not([hidden])) #legend { bottom:58px; }
+    body.tour-on:not(.story):has(#timeline:not([hidden])) #legend { bottom:110px; }
+    body:not(.story):has(#timeline:not([hidden])) #notice,
+    body.tour-on:not(.story) #notice { display:none; }
+  }
+  /* §3 shell: floating notice covered the inspector — retire it; authorship lives in About + catalog */
+  @media (min-width:1101px) {
+    body:not(.story):not(.bare) #notice { display: none !important; }
+  }
+  /* Notice stays in the right gutter on mid widths only */
+  #notice { position:fixed; right:14px; bottom:12px; z-index:2; font-size:13px; color:#8b9498; text-align:right; max-width:min(48vw, 440px); line-height:1.4; }
+  #notice a { color:#cfc6ae; }
+  body:not(.story):has(#timeline:not([hidden])) #notice {
+    max-width:min(36vw, 360px);
+    bottom:14px;
+  }
+  /* District tour: thumb-sized prev/next + big stop label (phones / narrow). */
+  #tour { position:fixed; left:50%; transform:translateX(-50%); bottom:12px; z-index:3; width:min(420px, calc(100vw - 24px));
+           display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(16,20,22,.82); border:1px solid #2c3538;
+           border-radius:8px; color:#efe9d8; -webkit-tap-highlight-color:transparent; touch-action:pan-y; }
+  #tour[hidden] { display:none !important; }
+  #tour .prev, #tour .next { flex:0 0 48px; width:48px; height:48px; padding:0; border-radius:8px; border:1px solid #cfc6ae;
+           background:rgba(43,105,99,.9); color:#efe9d8; font-family:"Barlow Condensed", sans-serif; font-weight:700; font-size:32px; line-height:1; cursor:pointer; }
+  #tour .prev:active, #tour .next:active { background:#4d9089; }
+  #tour .mid { flex:1; min-width:0; text-align:center; pointer-events:none; }
+  #tour .stop-label { display:block; font-family:"Barlow Condensed", sans-serif; font-weight:700; font-size:24px; letter-spacing:.02em; text-transform:uppercase; line-height:1.1; }
+  #tour .stop-meta { display:block; font-size:14px; color:#8b9498; margin-top:2px; letter-spacing:.06em; }
+  body.story #tour, body.bare #tour { display:none !important; }
+  @media (min-width:721px){ #tour { display:none !important; } }
+  /* Timeline sits under the shell, full width of the page chrome — not over the map. */
+  #timeline { position:fixed; left:16px; right:16px; transform:none; bottom:10px; width:auto; z-index:3; display:flex; align-items:center; gap:12px;
+              background:rgba(16,20,22,.88); border:1px solid #2c3538; border-radius:6px; padding:8px 12px; font-size:12px; color:#cfc6ae; }
+  #timeline[hidden] { display:none; }
+  #timeline input { flex:1; accent-color:#4d9089; min-width:0; }
+  #timeline .day { font-family:"Barlow Condensed", sans-serif; font-size:18px; color:#efe9d8; min-width:150px; text-align:right; white-space:nowrap; }
+  #timeline .note { color:#8b9498; white-space:nowrap; }
+  #timeline .live { background:#2b6963; color:#efe9d8; border:0; border-radius:4px; padding:6px 12px; font-family:"IBM Plex Mono", monospace; font-size:14px; letter-spacing:.12em; cursor:pointer; }
+  #timeline .live[hidden] { display:none; }
+  #timeline .live:disabled { opacity:.45; cursor:default; }
+  #timeline .jump {
+    background:transparent; color:#cfc6ae; border:1px solid #4c5659; border-radius:4px;
+    padding:6px 12px; font-family:"IBM Plex Mono", monospace; font-size:14px; letter-spacing:.04em;
+    cursor:pointer; white-space:nowrap;
+  }
+  #timeline .jump:hover, #timeline .jump:focus-visible { border-color:#4d9089; color:#efe9d8; outline:none; }
+  #timeline .step {
+    width:34px; height:34px; padding:0; border-radius:6px; border:1px solid #4c5659;
+    background:#161c1f; color:#efe9d8; font-size:20px; line-height:1; cursor:pointer;
+  }
+  #timeline .step:hover, #timeline .step:focus-visible { border-color:#4d9089; outline:none; }
+  #timeline .date-wrap { display:flex; align-items:center; }
+  #timeline #timeline-date {
+    background:#101416; color:#efe9d8; border:1px solid #4c5659; border-radius:4px;
+    padding:3px 6px; font-family:"IBM Plex Mono", monospace; font-size:12px; max-width:138px;
+  }
+  #timeline #timeline-date:focus-visible { outline:none; border-color:#4d9089; box-shadow:0 0 0 2px #101416, 0 0 0 4px #4d9089; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+  #timeline.scrubbed { border-color:#4d9089; }
+  body.story #timeline, body.bare #timeline { display:none; }
+  @media (min-width:1101px){
+    /* Leave room for the inspector column so the scrubber doesn't sit under it */
+    #timeline { right: calc(320px + 40px); left: 16px; bottom: 10px; }
+  }
+  @media (max-width:720px){
+    #timeline { left:12px; right:12px; bottom:10px; }
+  }
+  @media (max-width:640px){ #timeline { gap:8px; padding:6px 8px; } #timeline .note { display:none; } #timeline .jump, #timeline .date-wrap { display:none; } #timeline .day { min-width:0; font-size:14px; } }
+  @media (max-width:720px){
+    #hud { max-width:calc(100vw - 120px); left:10px; top:8px; padding:8px 12px 10px; }
+    #hud .name{font-size:30px}
+    #hud .idx{font-size:15px}
+    #hud .note{font-size:13px}
+    #legend{font-size:16px; padding:16px 18px; left:12px; bottom:12px}
+    #legend b{font-size:22px}
+    #legend .src{font-size:12px; margin-top:8px; opacity:.75}
+    #status{display:none} /* feed status stays in #hud-note on phones */
+    #notice{font-size:12.5px; max-width:42vw; color:#a8b0b3}
+    #about-btn, #numbers-btn, #zoom button{width:52px; height:52px; font-size:28px; right:12px}
+    #about-btn{top:10px}
+    #numbers-btn{top:72px}
+    /* Zoom stays inside #viewport; about/numbers remain fixed body chrome */
+    #zoom{right:8px; top:8px}
+    #zoom button{width:44px; height:44px; font-size:24px}
+    #zoom .zreset{font-size:20px}
+    /* Inside #viewport: under the zoom stack (right), so district plaques stay readable */
+    #pause-btn, #explore-btn {
+      left: auto; right: 8px; bottom: auto; min-width: 42px; height: 36px; font-size: 12px;
+      background: rgba(16,20,22,.55);
+    }
+    #pause-btn { top: 160px; }
+    #explore-btn { top: 204px; }
+    #tour .stop-label{font-size:26px}
+  }
+  /* bare mode (?bare=1): canvas only, for captures */
+  body.bare #hud, body.bare #status, body.bare #notice, body.bare #legend { display:none !important; }
+  /* story mode (?story=1): a 1080x1920 recorder frame; bigger type, legend clear of the IG UI, no status corner */
+  body.story #hud { left:0; right:0; top:0; max-width:none; flex-wrap:nowrap; padding:150px 40px 22px; flex-direction:column; gap:6px; background:linear-gradient(rgba(16,20,22,.92) 60%, rgba(16,20,22,0)); }
+  body.story #hud .name { font-size:64px; line-height:1; }
+  body.story #hud .idx { font-size:26px; }
+  body.story #status { display:none; }
+  body.story #notice { display:none; }
+  body.story #legend { left:40px; right:40px; bottom:300px; max-width:none; font-size:27px; line-height:1.4; padding:22px 26px; border-radius:8px; border-width:2px; }
+  body.story #legend b { font-size:38px; margin-bottom:6px; }
+  /* Story body is ~27px; keep .src a whisper footnote. */
+  body.story #legend .src { font-size:11px; margin-top:14px; color:#8b9498; line-height:1.25; opacity:.5; }
+  body.story #legend .more { font-size:22px; margin-top:14px; }
+  body.story #legend .more a { color:#2b6963; }
+  #card { display:none; }
+  body.story #card { position:fixed; inset:0; display:none; align-items:center; justify-content:center; text-align:center; background:rgba(16,20,22,.94); color:#efe9d8; padding:0 80px; }
+  body.story #card.on { display:flex; }
+  #card .big { font-family:"Barlow Condensed", sans-serif; font-weight:700; font-size:96px; line-height:.95; text-transform:uppercase; letter-spacing:.01em; }
+  #card .mid { font-family:"IBM Plex Mono", monospace; font-size:30px; color:#cfc6ae; margin-top:28px; }
+  #caption { display:none; }
+  body.story #caption { display:block; position:fixed; left:40px; right:40px; text-align:center; pointer-events:none; }
+  body.story #caption.top { top:340px; }
+  body.story #caption.bottom { bottom:330px; }
+  body.story #caption:empty { display:none; }
+  body.story #caption span { display:inline-block; background:rgba(16,20,22,.78); color:#efe9d8; font-family:"Barlow Condensed", sans-serif; font-weight:600; font-size:56px; line-height:1.12; padding:12px 26px 14px; border-radius:8px; max-width:960px; text-wrap:balance; }
+  body.story #caption span em { font-style:normal; color:#f3d29a; }
+  #card .link { position:absolute; left:0; right:0; bottom:420px; text-align:center; font-family:"IBM Plex Mono", monospace; font-size:34px; color:#efe9d8; letter-spacing:.01em; }
+  #card .link small { display:block; font-size:22px; color:#cfc6ae; margin-bottom:10px; }
+  #card .ask { font-family:"Barlow Condensed", sans-serif; font-weight:600; font-size:58px; line-height:1.05; margin-top:70px; color:#f3d29a; }
+
+  /* ---- §3 responsive shell ---- */
+  #app { display:flex; flex-direction:column; height:100%; height:100dvh; max-width:1440px; margin:0 auto; box-sizing:border-box; }
+  #chrome-top { flex:0 0 auto; z-index:3; padding:10px 16px 0; display:flex; flex-direction:column; gap:8px; pointer-events:none; }
+  #chrome-top > * { pointer-events:auto; }
+  #hud { position:relative; left:auto; top:auto; max-width:none; }
+  #districts { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  #districts[hidden] { display:none !important; }
+  #districts .dstop {
+    min-height:44px; padding:8px 14px; border-radius:8px; border:1px solid #2c3538;
+    background:rgba(16,20,22,.85); color:#efe9d8; font-family:var(--font-display); font-weight:600;
+    font-size:17px; letter-spacing:.04em; text-transform:uppercase; cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    box-shadow:inset 0 1px 0 rgba(255,250,240,.04);
+  }
+  #districts .dstop.on, #districts .dstop[aria-current="true"] {
+    background:var(--tower); border-color:var(--tower-lite);
+    box-shadow:inset 0 1px 0 rgba(255,250,240,.12);
+  }
+  #districts .dstop:hover, #districts .dstop:focus-visible { border-color:var(--tower-lite); outline:none; }
+  #districts .dstop:focus-visible { box-shadow:0 0 0 2px #101416, 0 0 0 4px #4d9089; }
+  #main-row { flex:1; min-height:0; display:flex; gap:16px; padding:8px 16px 56px; box-sizing:border-box; }
+  #viewport {
+    flex:1; min-width:0; min-height:0; position:relative;
+    border-radius:10px; overflow:hidden; background:#101416;
+    border:1px solid #2c3538;
+    box-shadow:inset 0 0 0 1px rgba(239,233,216,.04);
+  }
+  #stage { position:absolute; inset:0; display:block; }
+  /* Canvas pixel size is driven by JS (viewportSize) — do not CSS-stretch, or framing looks like a leftover zoom. */
+  #stage canvas { display:block; touch-action:none; cursor:grab; }
+  #inspector {
+    flex:0 0 320px; width:320px; max-width:100%; box-sizing:border-box;
+    background:var(--panel); color:var(--ink); border:1px solid var(--line); border-radius:10px;
+    padding:12px 14px 16px; overflow:auto; overscroll-behavior:contain;
+    font-size:var(--fs-body); line-height:1.5;
+    box-shadow:inset 0 1px 0 rgba(255,250,240,.55), 0 1px 0 rgba(26,32,34,.04);
+  }
+  #inspector[hidden] { display:none !important; }
+  #inspector .insp-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px; }
+  #inspector .insp-title { font-family:var(--font-display); font-size:22px; letter-spacing:.04em; text-transform:uppercase; margin:0; color:var(--tower); }
+  #inspector .x { width:44px; height:44px; border-radius:50%; border:1px solid var(--line); background:var(--paper); color:var(--ink);
+                  font-family:var(--font-display); font-weight:700; font-size:24px; cursor:pointer; }
+  #inspector .x:hover, #inspector .x:focus-visible { background:var(--tower); color:#efe9d8; border-color:var(--tower); outline:none; }
+  #inspector .placeholder { margin:0; color:#5b6467; font-size:var(--fs-meta); }
+  #inspector .insp-body b { font-family:var(--font-display); font-size:var(--fs-title); text-transform:uppercase; letter-spacing:.02em; display:block; margin-bottom:6px; }
+  #inspector .insp-body .text { margin:0 0 8px; }
+  #inspector .insp-body .src { font-size: 14px; color:#8b9498; line-height:1.35; margin:10px 0 0; }
+  #inspector .insp-body .more a { color:var(--tower); }
+  #inspector .insp-role { font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--tower); margin:0 0 4px; }
+  #inspector .insp-value { font-family:var(--font-display); font-size:32px; line-height:1.1; margin:4px 0 2px; color:var(--ink); }
+  #inspector .insp-period { font-size:14px; color:#5b6467; margin:0 0 8px; }
+  #inspector .stale { color:var(--lamp); }
+  #inspector .insp-foot { margin-top:14px; padding-top:10px; border-top:1px solid var(--line); font-size:14px; color:#8b9498; line-height:1.4; }
+  #inspector .insp-foot a { color:var(--tower); }
+  #signal-catalog { margin-top:14px; padding-top:12px; border-top:1px solid var(--line); }
+  #signal-catalog .cat-title { font-family:var(--font-display); font-size:20px; letter-spacing:.04em; text-transform:uppercase; margin:0 0 8px; color:var(--ink); }
+  #signal-catalog .cat-group { margin-bottom:10px; }
+  #signal-catalog .cat-label { font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:#8b9498; margin-bottom:4px; }
+  #signal-catalog .cat-item {
+    display:grid; grid-template-columns:1fr auto; grid-template-rows:auto auto; gap:0 8px;
+    width:100%; text-align:left; padding:8px 10px; margin:0 0 4px; min-height:44px;
+    border:1px solid var(--line); border-radius:6px; background:var(--paper); color:var(--ink);
+    font-family:var(--font-body); font-size:14px; cursor:pointer;
+  }
+  #signal-catalog .cat-item:hover, #signal-catalog .cat-item:focus-visible { border-color:var(--tower-lite); outline:none; }
+  #signal-catalog .cat-name { font-family:var(--font-display); font-size:19px; text-transform:uppercase; letter-spacing:.02em; grid-column:1; }
+  #signal-catalog .cat-role { font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:#8b9498; grid-column:1; }
+  #signal-catalog .cat-val { grid-column:2; grid-row:1 / span 2; align-self:center; font-size:16px; color:var(--tower); white-space:nowrap; }
+  /* Floating legend stays as hover preview; on wide screens with inspector, keep it light */
+  @media (min-width:1101px) {
+    body.inspector-on #legend { max-width:min(360px, 28vw); opacity:.92; }
+  }
+  @media (max-width:1100px) {
+    #main-row { flex-direction:column; padding:6px 12px 96px; gap:10px; }
+    #viewport { flex:0 0 auto; height:min(360px, 42dvh); min-height:280px; }
+    #inspector { flex:1 1 auto; width:auto; min-height:140px; padding-bottom:24px; }
+    #chrome-top { padding:8px 12px 0; }
+    #districts { display:none; } /* phone uses bottom #tour bar */
+  }
+  /* story/bare: full-bleed canvas, hide shell chrome */
+  body.story #app, body.bare #app { max-width:none; height:100%; }
+  body.story #chrome-top, body.bare #chrome-top,
+  body.story #districts, body.bare #districts,
+  body.story #inspector, body.bare #inspector { display:none !important; }
+  body.story #main-row, body.bare #main-row { padding:0; gap:0; }
+  body.story #viewport, body.bare #viewport {
+    position:fixed; inset:0; border:0; border-radius:0; height:auto; flex:none;
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="chrome-top">
+    <div id="hud"><span class="name">The Hollywood SIGN</span><span class="idx" id="idx">loading signals…</span><span class="note" id="hud-note"></span></div>
+    <nav id="districts" aria-label="Studio districts"></nav>
+  </div>
+  <div id="main-row">
+    <div id="viewport"><div id="stage"></div></div>
+    <aside id="inspector" aria-label="Selected signal"></aside>
+  </div>
+</div>
+<div id="status"></div>
+<div id="legend" role="status" aria-live="polite"></div>
+<div id="caption" class="top"></div>
+<div id="timeline" hidden><span class="note"></span><button type="button" class="step" id="timeline-prev" aria-label="Previous day">‹</button><input type="range" id="timeline-slider" min="0" max="0" value="0" aria-label="Replay a past day"><button type="button" class="step" id="timeline-next" aria-label="Next day">›</button><label class="date-wrap"><span class="sr-only">Jump to date</span><input type="date" id="timeline-date" aria-label="Jump to a specific day"></label><span class="day">today</span><button type="button" class="jump" data-day="2023-07-15" title="WGA + SAG-AFTRA mid-strike (events.json)">July 2023 strikes</button><button class="live" hidden>LIVE</button></div>
+<div id="notice">Shoot days · Income · Grosses · News. Every crowd is one public number. Drag to pan · scroll or +/− to zoom · tap/click to pin details — or open <b>#</b>. On a phone, swipe the district bar. <a href="https://github.com/laurenneal/hollywood-sign/blob/main/SOURCES.md">Sources</a> · Lauren Neal <a href="https://www.instagram.com/thelaurenneal/" rel="me">@thelaurenneal</a></div>
+<div id="card"><div><div class="big">The Hollywood SIGN</div><div class="mid">Shoot days · Income · Grosses · News<br>every crowd is one public number</div><div class="ask">Hover OVER anything.<br>What else should live on this lot?</div></div><div class="link"><small>live now</small>laurenneal.github.io/hollywood-sign<small style="margin-top:14px">Lauren Neal · @thelaurenneal</small></div></div>
+<script src="./scene/vendor/p5.min.js"></script>
+<script type="module" src="./scene/scene.js"></script>
+</body>
+</html>
