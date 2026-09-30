@@ -1,0 +1,119 @@
+// The Fair Play Films van = the SIGN index (sign_index). A small white van with a teal stripe and "FPF" on the side,
+// hidden somewhere new every day: the spot is picked from a fixed list of parking places across the lot by the
+// scene's child RNG plus the index value, so the same JSON hides it in the same place. None of the spots sit on text.
+// Front layer, so it can park in any district. Hover it and the legend explains the whole page in one sentence.
+
+import { hashString } from '../rng.js';
+import { useDisplay } from '../fonts.js';
+
+const VAN_W = 104, VAN_H = 52;
+
+// candidate parking spots (top-left of the van body), derived from the district rects and anchors so they follow
+// the layout; each one was checked against the lot's labels and building text (district labels, stage numbers,
+// UNION HALL, FILM OFFICE, COFFEE, THEATER, NEWS, and the windows actor's no-data line under the block), and
+// scene/tests/overlaps.mjs keeps every one clear of the other actors' footprints
+export function spots(D, A) {
+  const stageW = A.stageSize.w;
+  return [
+    { name: 'behind Stage 6',                      x: D.stages.x + 20 + 5 * (stageW + A.stageGap) + 30, y: D.stages.y - 30 },   // above the sawtooth peaks
+    { name: 'on the hill behind Stage 1',          x: D.stages.x - 10,                                   y: D.stages.y - 30 },   // left of Stage 1's roof unit
+    { name: 'across the street from the cinema',   x: A.streetRun.x + 640,                               y: A.streetRun.y + A.streetRun.h },
+    { name: 'parked on Backlot Street',            x: A.sidewalk.x + 20,                                 y: A.sidewalk.y + A.sidewalk.h + 82 },
+    { name: 'at the curb across from the coffee cart', x: A.coffeeCart.x + 3,                            y: A.sidewalk.y + A.sidewalk.h + 82 },  // left of the block's broadcast mast
+    { name: 'beside the departures board',         x: D.gate.x + 20,                                     y: A.departures.y + 70 },
+    { name: 'at the back of the truck lane',       x: A.truckLane.x + A.truckLane.w - 30,                y: A.truckLane.y + 6 },   // past the longest queue
+    { name: 'on the star walk',                    x: A.gateMouth.x + A.gateMouth.w + 28,                y: A.starWalk.y + 46 },   // clear of the gate pillar (16 px past the mouth) even with jitter and the headlight glow
+    { name: 'up on the hill by the water tower',   x: A.waterTower.x - 244,                              y: A.waterTower.y + 122 },   // left of the tower's legs, above the departures board
+    { name: 'by the poster wall',                  x: A.posterWall.x + 180,                              y: A.posterWall.y + A.posterWall.h + 40 },
+    { name: 'behind the newsstand',                x: A.newsstand.x + A.newsstand.w + 40,                y: A.newsstand.y + 20 },   // past the street lamp by the stand
+    { name: 'on the street run',                   x: A.streetRun.x + 240,                               y: A.streetRun.y + 70 },
+    { name: 'behind the apartment block',          x: A.apartment.x + 330,                               y: A.apartment.y + A.apartment.h + 50 },
+    { name: 'on the lawn by the park path',        x: D.park.x + 20,                                     y: D.park.y + 496 },
+    { name: 'on the lower lawn of the park',       x: D.park.x + 290,                                    y: D.park.y + 496 },
+  ];
+}
+
+export default {
+  id: 'waldo',
+  signal: 'sign_index',
+  district: 'boulevard',
+  layer: 'front',
+  spot: null,
+  nSpots: 0,
+  x: 0, y: 0, dir: 1, phase: 0,
+  sig: null,
+
+  // if signals.json never loaded, update() never ran; park from the date alone so the van and its hover region still exist
+  init(scene) { if (!this.spot) this.update(null, scene); },
+
+  // called on every signals.json load; the spot comes from the child RNG mixed with the index value (or the date when the index is null)
+  update(sig, scene) {
+    const rng = scene.childRng('waldo');
+    this.sig = sig;
+    const list = spots(scene.DISTRICTS, scene.ANCHORS);
+    const n = list.length;
+    this.nSpots = n;
+    let k = Math.floor(rng() * n);
+    if (sig && sig.value != null) k = (k + Math.round(Math.abs(sig.value))) % n;
+    else k = (k + (hashString(String(scene.today || '')) % n)) % n;
+    this.spot = list[k];
+    // a few pixels of jitter inside the spot so the same place still looks parked, not stamped
+    this.x = this.spot.x + Math.floor(rng() * 7) - 3;
+    this.y = this.spot.y + Math.floor(rng() * 5) - 2;
+    this.dir = rng() < 0.5 ? -1 : 1;
+    this.phase = rng() * Math.PI * 2;
+  },
+
+  draw(p, t, scene) {
+    if (!this.spot) return;
+    const C = scene.PALETTE;
+    const sig = this.sig;
+    const bob = Math.sin(t * 2 + this.phase) * 0.8;
+    const x = this.x, y = this.y + bob, d = this.dir;
+    const body = scene.paint(sig, C.truck);
+    const stripe = scene.paint(sig, C.tower);
+    const cabW = 24;
+    const cabX = d > 0 ? x + VAN_W - cabW : x;          // the cab is at the front
+    const boxX = d > 0 ? x : x + cabW;                  // the cargo box is the rest
+
+    p.noStroke();
+    // shadow, body, cab
+    p.fill(26, 32, 34, 42); p.ellipse(x + VAN_W / 2 + 2, this.y + VAN_H + 4, VAN_W + 6, 9);
+    p.fill(body); p.rect(x, y, VAN_W, VAN_H, 4);
+    p.fill(C.truckCab); p.rect(cabX, y + 1, cabW, VAN_H - 2, d > 0 ? 4 : 2);
+    // windshield and side window
+    p.fill(C.windowOff);
+    p.rect(d > 0 ? cabX + cabW - 10 : cabX + 1, y + 6, 8, 14, 1);
+    p.rect(d > 0 ? cabX + 2 : cabX + 12, y + 7, 8, 12, 1);
+    // side mirror
+    p.fill(C.inkSoft);
+    p.rect(d > 0 ? cabX + cabW : cabX - 3, y + 8, 3, 7, 1);
+    // teal stripe along the cargo box
+    p.fill(stripe); p.rect(boxX + 2, y + 22, VAN_W - cabW - 4, 7);
+    // FPF on the side
+    p.fill(C.ink); useDisplay(p, 32); p.textAlign(p.CENTER, p.CENTER);
+    p.text('FPF', boxX + (VAN_W - cabW) / 2, y + 14);
+    p.textAlign(p.LEFT, p.TOP);
+    // wheels
+    p.fill(C.ink);
+    p.ellipse(x + 16, y + VAN_H, 15, 15); p.ellipse(x + VAN_W - 16, y + VAN_H, 15, 15);
+    p.fill(C.stale); p.ellipse(x + 16, y + VAN_H, 6, 6); p.ellipse(x + VAN_W - 16, y + VAN_H, 6, 6);
+    // headlight, glowing at night
+    const hx = d > 0 ? x + VAN_W - 1 : x + 1;
+    if (scene.isNight) { p.fill(241, 199, 106, 80); p.ellipse(hx, y + 22, 18, 14); }
+    p.fill(C.windowWarm); p.ellipse(hx, y + 22, 5, 5);
+
+    scene.hit(x - 4, this.y - 6, VAN_W + 8, VAN_H + 16, this);
+  },
+
+  legend() {
+    const where = this.spot ? ` Today it is parked ${this.spot.name}.` : '';
+    return {
+      title: 'Found it.',
+      text: `The Fair Play Films van parks somewhere new every day.${where}` +
+            ' Fair Play works on transparency and access for independent filmmakers. Tap anything else on the lot for its number.',
+      link: { href: 'https://fairplayfilms.com/', label: 'fairplayfilms.com' },
+      sig: null,
+    };
+  },
+};
