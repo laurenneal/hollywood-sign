@@ -1,0 +1,1063 @@
+{
+  "schema_version": 1,
+  "method_version": "comparison-1",
+  "slug": "la-film-work",
+  "edition": "2026-10-03",
+  "title": "What is happening to film work in LA?",
+  "author": "Lauren Neal",
+  "author_role": "Actor and data scientist",
+  "sources": {
+    "bls-ces": {
+      "name": "U.S. Bureau of Labor Statistics",
+      "title": "CES series SMU06310845051200001",
+      "url": "https://data.bls.gov/timeseries/SMU06310845051200001",
+      "publication_status": "public",
+      "terms": "U.S. federal government work, public domain",
+      "terms_url": "https://www.bls.gov/bls/linksite.htm",
+      "attribution": "Source: U.S. Bureau of Labor Statistics"
+    },
+    "filmla-2025": {
+      "name": "FilmLA",
+      "title": "Q4 and full-year 2025 production report",
+      "url": "https://filmla.com/wp-content/uploads/FilmLA-research-Q4-YTD-2025-report.pdf#page=9",
+      "publication_status": "public-with-attribution",
+      "terms": "FilmLA permits use of report information with attribution",
+      "terms_url": "https://filmla.com/research/",
+      "attribution": "Source: FilmLA"
+    },
+    "filmla-2026q1": {
+      "name": "FilmLA",
+      "title": "Q1 2026 production report, released April 28, 2026",
+      "url": "https://filmla.com/wp-content/uploads/FilmLA-News-Release_4.28.26-ResearchUpdate-q1-2026.pdf#page=1",
+      "publication_status": "public-with-attribution",
+      "terms": "FilmLA permits use of report information with attribution",
+      "terms_url": "https://filmla.com/research/",
+      "attribution": "Source: FilmLA"
+    },
+    "filmla-2026q2": {
+      "name": "FilmLA",
+      "title": "Q2 2026 research update, released July 23, 2026",
+      "url": "https://filmla.com/california-film-tax-incentives-continue-to-create-job-opportunities-in-scripted-production/",
+      "publication_status": "public-with-attribution",
+      "terms": "FilmLA permits use of report information with attribution",
+      "terms_url": "https://filmla.com/research/",
+      "attribution": "Source: FilmLA"
+    }
+  },
+  "metrics": [
+    {
+      "id": "jobs",
+      "signal_id": "la_jobs",
+      "measure_id": "payroll_jobs",
+      "title": "Payroll jobs",
+      "unit": "jobs",
+      "cadence": "monthly",
+      "geography": "Los Angeles–Long Beach–Glendale metropolitan division",
+      "population": "Payroll jobs in motion picture and sound recording industries (NAICS 512)",
+      "definition": "All-employee payroll jobs, not seasonally adjusted. This is a count of jobs, not unique workers.",
+      "limitation": "Includes sound recording and occupations beyond actors. Does not measure freelance livelihoods, individual earnings, or whether a particular worker can find work.",
+      "transformation": "Source values in thousands of jobs multiplied by 1,000; no seasonal adjustment or smoothing.",
+      "evidence_kind": "statistical-series",
+      "input_sha256": "54955cfa46c71da526b6e988bc8dfa6ccef3823086e596d8728d24231bb0f2f4",
+      "points": [
+        {
+          "period": "2019-01",
+          "value": 134800.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2019-01; source unit: thousand jobs"
+        },
+        {
+          "period": "2019-02",
+          "value": 147500.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2019-02; source unit: thousand jobs"
+        },
+        {
+          "period": "2019-03",
+          "value": 140400.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2019-03; source unit: thousand jobs"
+        },
+        {
+          "period": "2019-04",
+          "value": 123900.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2019-04; source unit: thousand jobs"
+        },
+        {
+          "period": "2019-05",
+          "value": 123400.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2019-05; source unit: thousand jobs"
+        },
+        {
+          "period": "2019-06",
+          "value": 125400.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2019-06; source unit: thousand jobs"
+        },
+        {
+          "period": "2019-07",
+          "value": 119200.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2019-07; source unit: thousand jobs"
+        },
+        {
+          "period": "2019-08",
+          "value": 129600.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2019-08; source unit: thousand jobs"
+        },
+        {
+          "period": "2019-09",
+          "value": 139100.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2019-09; source unit: thousand jobs"
+        },
+        {
+          "period": "2019-10",
+          "value": 131800.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2019-10; source unit: thousand jobs"
+        },
+        {
+          "period": "2019-11",
+          "value": 138400.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2019-11; source unit: thousand jobs"
+        },
+        {
+          "period": "2019-12",
+          "value": 132900.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2019-12; source unit: thousand jobs"
+        },
+        {
+          "period": "2020-01",
+          "value": 142000.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2020-01; source unit: thousand jobs"
+        },
+        {
+          "period": "2020-02",
+          "value": 152500.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2020-02; source unit: thousand jobs"
+        },
+        {
+          "period": "2020-03",
+          "value": 146100.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2020-03; source unit: thousand jobs"
+        },
+        {
+          "period": "2020-04",
+          "value": 87400.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2020-04; source unit: thousand jobs"
+        },
+        {
+          "period": "2020-05",
+          "value": 87600.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2020-05; source unit: thousand jobs"
+        },
+        {
+          "period": "2020-06",
+          "value": 80400.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2020-06; source unit: thousand jobs"
+        },
+        {
+          "period": "2020-07",
+          "value": 82300.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2020-07; source unit: thousand jobs"
+        },
+        {
+          "period": "2020-08",
+          "value": 91600.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2020-08; source unit: thousand jobs"
+        },
+        {
+          "period": "2020-09",
+          "value": 94500.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2020-09; source unit: thousand jobs"
+        },
+        {
+          "period": "2020-10",
+          "value": 111800.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2020-10; source unit: thousand jobs"
+        },
+        {
+          "period": "2020-11",
+          "value": 120300.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2020-11; source unit: thousand jobs"
+        },
+        {
+          "period": "2020-12",
+          "value": 116600.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2020-12; source unit: thousand jobs"
+        },
+        {
+          "period": "2021-01",
+          "value": 104300.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2021-01; source unit: thousand jobs"
+        },
+        {
+          "period": "2021-02",
+          "value": 113600.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2021-02; source unit: thousand jobs"
+        },
+        {
+          "period": "2021-03",
+          "value": 118500.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2021-03; source unit: thousand jobs"
+        },
+        {
+          "period": "2021-04",
+          "value": 119900.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2021-04; source unit: thousand jobs"
+        },
+        {
+          "period": "2021-05",
+          "value": 127000.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2021-05; source unit: thousand jobs"
+        },
+        {
+          "period": "2021-06",
+          "value": 119800.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2021-06; source unit: thousand jobs"
+        },
+        {
+          "period": "2021-07",
+          "value": 115600.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2021-07; source unit: thousand jobs"
+        },
+        {
+          "period": "2021-08",
+          "value": 144600.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2021-08; source unit: thousand jobs"
+        },
+        {
+          "period": "2021-09",
+          "value": 126600.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2021-09; source unit: thousand jobs"
+        },
+        {
+          "period": "2021-10",
+          "value": 139300.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2021-10; source unit: thousand jobs"
+        },
+        {
+          "period": "2021-11",
+          "value": 151100.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2021-11; source unit: thousand jobs"
+        },
+        {
+          "period": "2021-12",
+          "value": 141200.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2021-12; source unit: thousand jobs"
+        },
+        {
+          "period": "2022-01",
+          "value": 146600.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2022-01; source unit: thousand jobs"
+        },
+        {
+          "period": "2022-02",
+          "value": 161100.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2022-02; source unit: thousand jobs"
+        },
+        {
+          "period": "2022-03",
+          "value": 155600.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2022-03; source unit: thousand jobs"
+        },
+        {
+          "period": "2022-04",
+          "value": 147000.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2022-04; source unit: thousand jobs"
+        },
+        {
+          "period": "2022-05",
+          "value": 150800.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2022-05; source unit: thousand jobs"
+        },
+        {
+          "period": "2022-06",
+          "value": 145900.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2022-06; source unit: thousand jobs"
+        },
+        {
+          "period": "2022-07",
+          "value": 145500.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2022-07; source unit: thousand jobs"
+        },
+        {
+          "period": "2022-08",
+          "value": 154300.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2022-08; source unit: thousand jobs"
+        },
+        {
+          "period": "2022-09",
+          "value": 146500.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2022-09; source unit: thousand jobs"
+        },
+        {
+          "period": "2022-10",
+          "value": 147100.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2022-10; source unit: thousand jobs"
+        },
+        {
+          "period": "2022-11",
+          "value": 151500.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2022-11; source unit: thousand jobs"
+        },
+        {
+          "period": "2022-12",
+          "value": 146300.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2022-12; source unit: thousand jobs"
+        },
+        {
+          "period": "2023-01",
+          "value": 134200.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2023-01; source unit: thousand jobs"
+        },
+        {
+          "period": "2023-02",
+          "value": 135300.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2023-02; source unit: thousand jobs"
+        },
+        {
+          "period": "2023-03",
+          "value": 130200.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2023-03; source unit: thousand jobs"
+        },
+        {
+          "period": "2023-04",
+          "value": 115200.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2023-04; source unit: thousand jobs"
+        },
+        {
+          "period": "2023-05",
+          "value": 114800.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2023-05; source unit: thousand jobs"
+        },
+        {
+          "period": "2023-06",
+          "value": 101700.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2023-06; source unit: thousand jobs"
+        },
+        {
+          "period": "2023-07",
+          "value": 94200.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2023-07; source unit: thousand jobs"
+        },
+        {
+          "period": "2023-08",
+          "value": 93400.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2023-08; source unit: thousand jobs"
+        },
+        {
+          "period": "2023-09",
+          "value": 91700.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2023-09; source unit: thousand jobs"
+        },
+        {
+          "period": "2023-10",
+          "value": 93700.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2023-10; source unit: thousand jobs"
+        },
+        {
+          "period": "2023-11",
+          "value": 104700.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2023-11; source unit: thousand jobs"
+        },
+        {
+          "period": "2023-12",
+          "value": 107900.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2023-12; source unit: thousand jobs"
+        },
+        {
+          "period": "2024-01",
+          "value": 102600.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2024-01; source unit: thousand jobs"
+        },
+        {
+          "period": "2024-02",
+          "value": 114900.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2024-02; source unit: thousand jobs"
+        },
+        {
+          "period": "2024-03",
+          "value": 117200.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2024-03; source unit: thousand jobs"
+        },
+        {
+          "period": "2024-04",
+          "value": 109200.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2024-04; source unit: thousand jobs"
+        },
+        {
+          "period": "2024-05",
+          "value": 112200.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2024-05; source unit: thousand jobs"
+        },
+        {
+          "period": "2024-06",
+          "value": 105100.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2024-06; source unit: thousand jobs"
+        },
+        {
+          "period": "2024-07",
+          "value": 103000.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2024-07; source unit: thousand jobs"
+        },
+        {
+          "period": "2024-08",
+          "value": 111500.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2024-08; source unit: thousand jobs"
+        },
+        {
+          "period": "2024-09",
+          "value": 109300.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2024-09; source unit: thousand jobs"
+        },
+        {
+          "period": "2024-10",
+          "value": 105300.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2024-10; source unit: thousand jobs"
+        },
+        {
+          "period": "2024-11",
+          "value": 116800.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2024-11; source unit: thousand jobs"
+        },
+        {
+          "period": "2024-12",
+          "value": 108000.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2024-12; source unit: thousand jobs"
+        },
+        {
+          "period": "2025-01",
+          "value": 93400.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2025-01; source unit: thousand jobs"
+        },
+        {
+          "period": "2025-02",
+          "value": 108900.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2025-02; source unit: thousand jobs"
+        },
+        {
+          "period": "2025-03",
+          "value": 99400.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2025-03; source unit: thousand jobs"
+        },
+        {
+          "period": "2025-04",
+          "value": 99600.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2025-04; source unit: thousand jobs"
+        },
+        {
+          "period": "2025-05",
+          "value": 106400.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2025-05; source unit: thousand jobs"
+        },
+        {
+          "period": "2025-06",
+          "value": 100700.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2025-06; source unit: thousand jobs"
+        },
+        {
+          "period": "2025-07",
+          "value": 97300.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2025-07; source unit: thousand jobs"
+        },
+        {
+          "period": "2025-08",
+          "value": 103900.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2025-08; source unit: thousand jobs"
+        },
+        {
+          "period": "2025-09",
+          "value": 100300.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2025-09; source unit: thousand jobs"
+        },
+        {
+          "period": "2025-10",
+          "value": 100700.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2025-10; source unit: thousand jobs"
+        },
+        {
+          "period": "2025-11",
+          "value": 100800.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2025-11; source unit: thousand jobs"
+        },
+        {
+          "period": "2025-12",
+          "value": 101600.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2025-12; source unit: thousand jobs"
+        },
+        {
+          "period": "2026-01",
+          "value": 97100.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2026-01; source unit: thousand jobs"
+        },
+        {
+          "period": "2026-02",
+          "value": 103900.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2026-02; source unit: thousand jobs"
+        },
+        {
+          "period": "2026-03",
+          "value": 101400.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2026-03; source unit: thousand jobs"
+        },
+        {
+          "period": "2026-04",
+          "value": 96900.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2026-04; source unit: thousand jobs"
+        },
+        {
+          "period": "2026-05",
+          "value": 98100.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2026-05; source unit: thousand jobs"
+        },
+        {
+          "period": "2026-06",
+          "value": 101000.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2026-06; source unit: thousand jobs"
+        },
+        {
+          "period": "2026-07",
+          "value": 94900.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2026-07; source unit: thousand jobs"
+        },
+        {
+          "period": "2026-08",
+          "value": 95700.0,
+          "vintage": "2026-09-21",
+          "preliminary": true,
+          "source_id": "bls-ces",
+          "locator": "Series SMU06310845051200001, month 2026-08; source unit: thousand jobs"
+        }
+      ],
+      "default_from": "2019-08",
+      "default_to": "2026-08"
+    },
+    {
+      "id": "shoot-days",
+      "signal_id": "filmla_shoot_days",
+      "measure_id": "permitted_location_shoot_days",
+      "title": "On-location shoot days",
+      "unit": "shoot days",
+      "cadence": "quarterly",
+      "geography": "Greater Los Angeles jurisdictions served by FilmLA",
+      "population": "Permitted on-location activity reported by FilmLA across all reported categories",
+      "definition": "FilmLA shoot days: permitted filming activity at a location on a day. Multiple locations can contribute multiple shoot days to one production.",
+      "limitation": "Coverage follows FilmLA's permitting jurisdictions. This is not soundstage occupancy, unique productions, employment, or a complete count of filming everywhere in LA.",
+      "transformation": "Reported total shoot days, unchanged. Q2 2026 is carried as preliminary because the local feed uses the web update.",
+      "evidence_kind": "administrative-series",
+      "input_sha256": "f924e5ca0b7f75507e12b67d6bcbf4303a30a2c7c7c8317008d0eef12261da83",
+      "points": [
+        {
+          "period": "2019Q1",
+          "value": 8843.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2019 column, Q1 row"
+        },
+        {
+          "period": "2019Q2",
+          "value": 8632.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2019 column, Q2 row"
+        },
+        {
+          "period": "2019Q3",
+          "value": 9226.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2019 column, Q3 row"
+        },
+        {
+          "period": "2019Q4",
+          "value": 9839.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2019 column, Q4 row"
+        },
+        {
+          "period": "2020Q1",
+          "value": 7252.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2020 column, Q1 row"
+        },
+        {
+          "period": "2020Q2",
+          "value": 194.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2020 column, Q2 row"
+        },
+        {
+          "period": "2020Q3",
+          "value": 4199.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2020 column, Q3 row"
+        },
+        {
+          "period": "2020Q4",
+          "value": 7348.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2020 column, Q4 row"
+        },
+        {
+          "period": "2021Q1",
+          "value": 7011.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2021 column, Q1 row"
+        },
+        {
+          "period": "2021Q2",
+          "value": 9791.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2021 column, Q2 row"
+        },
+        {
+          "period": "2021Q3",
+          "value": 10127.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2021 column, Q3 row"
+        },
+        {
+          "period": "2021Q4",
+          "value": 10780.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2021 column, Q4 row"
+        },
+        {
+          "period": "2022Q1",
+          "value": 9832.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2022 column, Q1 row"
+        },
+        {
+          "period": "2022Q2",
+          "value": 9220.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2022 column, Q2 row"
+        },
+        {
+          "period": "2022Q3",
+          "value": 9066.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2022 column, Q3 row"
+        },
+        {
+          "period": "2022Q4",
+          "value": 8674.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2022 column, Q4 row"
+        },
+        {
+          "period": "2023Q1",
+          "value": 7476.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2023 column, Q1 row"
+        },
+        {
+          "period": "2023Q2",
+          "value": 6566.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2023 column, Q2 row"
+        },
+        {
+          "period": "2023Q3",
+          "value": 5311.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2023 column, Q3 row"
+        },
+        {
+          "period": "2023Q4",
+          "value": 5520.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2023 column, Q4 row"
+        },
+        {
+          "period": "2024Q1",
+          "value": 6823.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2024 column, Q1 row"
+        },
+        {
+          "period": "2024Q2",
+          "value": 5749.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2024 column, Q2 row"
+        },
+        {
+          "period": "2024Q3",
+          "value": 5048.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2024 column, Q3 row"
+        },
+        {
+          "period": "2024Q4",
+          "value": 5860.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2024 column, Q4 row"
+        },
+        {
+          "period": "2025Q1",
+          "value": 5295.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2025 column, Q1 row"
+        },
+        {
+          "period": "2025Q2",
+          "value": 5394.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2025 column, Q2 row"
+        },
+        {
+          "period": "2025Q3",
+          "value": 4380.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2025 column, Q3 row"
+        },
+        {
+          "period": "2025Q4",
+          "value": 4625.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2025",
+          "locator": "PDF page 9, Annual Shoot Days Totals, 2025 column, Q4 row"
+        },
+        {
+          "period": "2026Q1",
+          "value": 5121.0,
+          "vintage": "2026-09-21",
+          "preliminary": false,
+          "source_id": "filmla-2026q1",
+          "locator": "PDF page 1, opening paragraph, total Shoot Days"
+        },
+        {
+          "period": "2026Q2",
+          "value": 4711.0,
+          "vintage": "2026-09-21",
+          "preliminary": true,
+          "source_id": "filmla-2026q2",
+          "locator": "Research update body, overall on-location Shoot Days for April–June 2026"
+        }
+      ],
+      "default_from": "2019Q2",
+      "default_to": "2026Q2"
+    }
+  ]
+}
