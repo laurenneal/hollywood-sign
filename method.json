@@ -1,0 +1,63 @@
+{
+  "version": "0.3",
+  "name": "SIGN index",
+  "object": "Paid work for film and television in Los Angeles, with LA as the reference city. Press climate enters through GDELT trade tone. Signals whose sign for LA is ambiguous (global streaming hours, release supply) are shown as context and are not index members. Wikipedia Attention is deferred and is not an index member.",
+  "reference_year": 2019,
+  "scale": "HHI = 50 + 25 * sum(w * d * z), z clipped to [-2, 2] against each component's own trailing window; z averaged within a domain before weights are applied across domains. Stale or missing components are dropped and the remaining weights renormalised.",
+  "components": {
+    "la_jobs": {
+      "weight": 0.2,
+      "domain": "income",
+      "note": "LA metro motion picture and sound recording payroll jobs, BLS SMU06310845051200001"
+    },
+    "la_share": {
+      "weight": 0.1,
+      "domain": "income",
+      "note": "LA share of US NAICS 512 jobs, NSA over NSA"
+    },
+    "unemp_512_12m": {
+      "weight": 0.1,
+      "domain": "income",
+      "note": "industry unemployment rate LNU04034179, trailing 12-month mean (the raw CPS series is too noisy), direction -1"
+    },
+    "filmla_shoot_days": {
+      "weight": 0.2,
+      "domain": "shoot",
+      "note": "FilmLA on-location shoot days per quarter; cite FilmLA as source on every public use"
+    },
+    "weekend_no1_4wk": {
+      "weight": 0.2,
+      "domain": "grosses",
+      "note": "trailing 4-weekend sum of the US weekend number-one gross, Wikipedia CC BY-SA"
+    },
+    "trade_tone": {
+      "weight": 0.2,
+      "domain": "news",
+      "note": "GDELT mean tone over trade domains, 7-day article-weighted mean; primary tone path (no RSS keyword proxy in the index)"
+    }
+  },
+  "proxies": {},
+  "deferred": {
+    "attention": "Deferred: not claimed live; tourists actor shows an explicit deferred/empty walk, not weather. Wikipedia film/TV share feed may still run privately for later definition."
+  },
+  "changelog": [
+    {
+      "version": "0.1",
+      "date": "2026-09-21",
+      "note": "first draft from the Sep 20 2026 research dossier; weights are provisional until the first month of history exists"
+    },
+    {
+      "version": "0.2",
+      "date": "2026-09-21",
+      "note": "netflix_hours moved from the index to context (its sign for LA is arguable; as a direction-0 member it was pulling the index toward 50); its 0.10 split to filmla_shoot_days and weekend_no1_4wk; unemployment component is the 12-month mean. Domain means are weight-proportional."
+    },
+    {
+      "version": "0.3",
+      "date": "2026-09-22",
+      "note": "FilmLA shoot days live with cite-FilmLA rule; Netflix locked derived-only (aggregates/windows only on the public path); trade_tone is GDELT-only (RSS keyword balance removed as index/sky proxy); attention deferred out of the index (its 0.10 moved to trade_tone); freshness shows as-of/stale when feeds are partial."
+    }
+  ],
+  "context": {
+    "netflix_hours": "Netflix global Top 10 total weekly hours: derived aggregates only (no raw Tudum tables on the public site); drawn as apartment windows but not an index member."
+  }
+}
