@@ -1,0 +1,103 @@
+{
+  "source": "Georgia Department of Economic Development (GDEcD), Georgia Film Office fiscal-year announcements on georgia.org and gov.georgia.gov",
+  "period_rule": "Georgia's fiscal year runs July 1 to June 30; period = the calendar year the fiscal year ends in (FY2026 = July 1, 2025 to June 30, 2026 -> 2026)",
+  "units": {"productions": "productions (feature films + independent films + television/episodic + commercials + music videos, as GDEcD counts them)", "spend_usd": "direct spending in Georgia by those productions, US dollars, as announced (rounded to $0.1 billion by GDEcD)"},
+  "read_on": "2026-09-21",
+  "note": "georgia.org returns HTTP 403 to non-browser clients, so this file is filled by hand from the pages below; every row carries the sentence it was taken from. GDEcD says FY19 spend was preliminary when announced; later announcements restate prior years only occasionally. The FY19 headline count (399) does not equal its own breakdown (26+31+214+91+29 = 391); the headline is kept and the breakdown noted.",
+  "rows": [
+    {
+      "fiscal_year": 2026,
+      "productions": 280,
+      "spend_usd": 2000000000,
+      "breakdown": {"feature_films": 13, "independent_films": 77, "television_episodic": 130, "commercials": 54},
+      "published": "2026-07-30",
+      "source_url": "https://georgia.org/blogs/georgia-productions-remain-steady-competition-heats",
+      "quote": "In fiscal year 2026 (July 1, 2025-June 30, 2026), the Georgia film office reported 280 total productions ... spending $2 billion in the state during FY26 ... 13 feature films, 77 independent films, 130 television and episodic productions, and 54 commercials",
+      "note": "the post itemises 274 of the 280 productions (no music-video count is given); the headline 280 is kept",
+      "verified": true
+    },
+    {
+      "fiscal_year": 2025,
+      "productions": 245,
+      "spend_usd": 2300000000,
+      "breakdown": {"feature_films": 13, "independent_films": 42, "television_episodic": 145, "commercials": 40, "music_videos": 9},
+      "published": "2025-07-30",
+      "source_url": "https://georgia.org/blogs/georgia-proves-staying-power-episodic-productions-keep-georgia-cameras-rolling",
+      "quote": "film and television productions spent a combined $2.3 billion in the state during fiscal year 2025 ... The 245 productions filmed in FY25 included 13 feature films, 42 independent films, 145 television and episodic productions, 40 commercials, and nine music videos.",
+      "verified": true
+    },
+    {
+      "fiscal_year": 2024,
+      "productions": 273,
+      "spend_usd": 2600000000,
+      "breakdown": {"feature_films": 25, "independent_films": 30, "television_episodic": 166, "commercials": 37, "music_videos": 15},
+      "published": "2024-08-14",
+      "source_url": "https://georgia.org/blogs/georgia-looking-ahead-future-film",
+      "quote": "film and television productions spent $2.6 billion in Georgia during fiscal year 2024 ... The State of Georgia hosted 273 productions between July 1, 2023, and June 30, 2024, including: 25 feature films. 30 independent films. 166 television and episodic productions. 37 commercials. 15 music videos.",
+      "verified": true
+    },
+    {
+      "fiscal_year": 2023,
+      "productions": 390,
+      "spend_usd": 4100000000,
+      "breakdown": {"feature_films": 31, "independent_films": 55, "television_episodic": 241, "commercials": 40, "music_videos": 23},
+      "published": "2023-09-13",
+      "source_url": "https://georgia.org/press-releases/2023/celebrating-50-years-georgia-film-office-film-tv-productions-spend-41b-state-fy23",
+      "quote": "productions spent $4.1 billion in Georgia during fiscal year 2023 ... The State of Georgia hosted 390 productions, represented by 31 feature films, 55 independent films, 241 television and episodic productions, 40 commercials, and 23 music videos",
+      "verified": true
+    },
+    {
+      "fiscal_year": 2022,
+      "productions": 412,
+      "spend_usd": 4400000000,
+      "breakdown": {"feature_films": 32, "independent_films": 36, "television_episodic": 269, "commercials": 42, "music_videos": 33},
+      "published": "2022-08-01",
+      "source_url": "https://georgia.org/press-releases/2022/georgia-made-film-tv-productions-generate-44b-state-yet-another-chart-topping-year",
+      "quote": "productions spent $4.4 billion in Georgia during fiscal year 2022 - a new industry record. The State of Georgia hosted 412 productions, represented by 32 feature films, 36 independent films, 269 television and episodic productions, 42 commercials, and 33 music videos between July 1, 2021 and June 30, 2022.",
+      "verified": true
+    },
+    {
+      "fiscal_year": 2021,
+      "productions": 366,
+      "spend_usd": 4000000000,
+      "breakdown": {"feature_films": 21, "independent_films": 45, "television_episodic": 222, "commercials": 57, "music_videos": 21},
+      "published": "2021-07-21",
+      "source_url": "https://www.georgia.org/press-release/georgia-film-records-blockbuster-year",
+      "quote": "the film and television industry set a new record with $4 billion in direct spending on productions in the state ... 366 productions filmed in the state, represented by 21 feature films, 45 independent films, 222 television and episodic productions, 57 commercials, and 21 music videos.",
+      "read_via": "https://peachcountydevelopment.com/news/article/georgia-film-records-blockbuster-year (verbatim reprint of the GDEcD release) and the Wayback Machine capture web.archive.org/web/20210721141516/https://www.georgia.org/press-release/georgia-film-records-blockbuster-year (same sentence, dated July 21, 2021); the georgia.org URL itself now redirects (301) to the press-releases index, so it is kept only as the original citation; the release also restates FY2020 at $2.2 billion and FY2019 at $2.9 billion",
+      "verified": true
+    },
+    {
+      "fiscal_year": 2020,
+      "productions": 234,
+      "spend_usd": 2200000000,
+      "breakdown": null,
+      "published": "2020-08-03",
+      "source_url": "https://gov.georgia.gov/press-releases/2020-08-03/georgia-ranked-no-1-film-production-business-facilities-magazine",
+      "quote": "234 film and television productions that filmed in Georgia during fiscal year 2020 spent $2.2 billion in the state",
+      "verified": true
+    },
+    {
+      "fiscal_year": 2019,
+      "productions": 399,
+      "spend_usd": 2900000000,
+      "breakdown": {"feature_films": 26, "independent_films": 31, "television_series": 214, "commercials": 91, "music_videos": 29},
+      "published": "2019-09-10",
+      "source_url": "https://gov.georgia.gov/press-releases/2019-09-10/gov-kemp-announces-record-year-global-commerce-and-film",
+      "quote": "399 productions filmed in Georgia in FY19 included 26 feature films, 31 independent films, 214 television series, 91 commercials and 29 music videos ... resulted in a record $2.9 billion invested in the state. ... The FY19 spend is preliminary and expected to increase as productions finalize their numbers.",
+      "note": "headline count 399; the breakdown sums to 391, which is the figure some later GDEcD material uses",
+      "verified": true
+    },
+    {
+      "fiscal_year": 2018,
+      "productions": 455,
+      "spend_usd": 2700000000,
+      "breakdown": null,
+      "published": "2018-08-16",
+      "source_url": "https://georgia.org/press-release/georgia-was-home-record-455-film-and-television-projects-fy-18",
+      "quote": "The record 455 film and television productions shot in Georgia represent $2.7 billion in direct spending",
+      "read_via": "https://www.wuga.org/local-news/2018-08-16/deal-georgia-home-to-a-record-455-film-television-projects-in-fy-2018 (news report of the Governor's release) and the Wayback Machine capture web.archive.org/web/20240428044620/https://www.georgia.org/press-release/georgia-was-home-record-455-film-and-television-projects-fy-18 (same sentence, dated August 16, 2018); the georgia.org URL itself now redirects (301) to the press-releases index, so it is kept only as the original citation",
+      "verified": true
+    }
+  ]
+}
