@@ -1,0 +1,178 @@
+[
+  {
+    "id": "wga-strike-2007",
+    "kind": "strike",
+    "union": "WGA",
+    "start": "2007-11-05",
+    "end": "2008-02-13",
+    "title": "WGA strike (2007-08)",
+    "source_url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Writers_Guild_of_America_strike",
+    "verified": true,
+    "note": "Nov 5 2007 through Feb 12 2008 inclusive (100 days); writers returned to work Feb 13 2008. end = first day back."
+  },
+  {
+    "id": "wga-mba-expiry-2023",
+    "kind": "expiry",
+    "union": "WGA",
+    "start": "2023-05-01",
+    "end": null,
+    "title": "WGA 2020 MBA expires",
+    "source_url": "https://en.wikipedia.org/wiki/2023_Writers_Guild_of_America_strike",
+    "verified": true,
+    "note": "Wikipedia: 'The MBA expired on May 1, 2023.'"
+  },
+  {
+    "id": "wga-strike-2023",
+    "kind": "strike",
+    "union": "WGA",
+    "start": "2023-05-02",
+    "end": "2023-09-27",
+    "title": "WGA strike (2023)",
+    "source_url": "https://www.wgacontract2023.org/the-campaign/tentative-agreement",
+    "verified": true,
+    "note": "Start: wgacontract2023.org/announcements/wga-on-strike: 'will begin on Tuesday, May 2, 2023 at 12:01 am PT'. End: 'end the strike as of 12:01 am PT/3:01 am ET on Wednesday, September 27th'. 148 days; end is exclusive."
+  },
+  {
+    "id": "sag-aftra-tv-theatrical-expiry-2023",
+    "kind": "expiry",
+    "union": "SAG-AFTRA",
+    "start": "2023-06-30",
+    "end": null,
+    "title": "SAG-AFTRA 2020 TV/Theatrical contracts expire",
+    "source_url": "https://www.sagaftra.org/sag-aftra-members-approve-2023-tvtheatrical-contracts-tentative-agreement",
+    "verified": true,
+    "note": "sagaftra.org: 'the previous TV/Theatrical contracts, which expired on June 30, 2023'."
+  },
+  {
+    "id": "sag-aftra-strike-2023",
+    "kind": "strike",
+    "union": "SAG-AFTRA",
+    "start": "2023-07-14",
+    "end": "2023-11-09",
+    "title": "SAG-AFTRA TV/Theatrical strike (2023)",
+    "source_url": "https://www.sagaftra.org/sag-aftra-members-approve-2023-tvtheatrical-contracts-tentative-agreement",
+    "verified": true,
+    "note": "sagaftra.org: 'The union called a strike beginning 12:01 a.m. July 14, which continued for 118 days until Nov. 9.' End is exclusive (suspended 12:01 a.m. Nov 9)."
+  },
+  {
+    "id": "wga-mba-ratification-2023",
+    "kind": "ratification",
+    "union": "WGA",
+    "start": "2023-10-09",
+    "end": null,
+    "title": "WGA members ratify 2023 MBA",
+    "source_url": "https://www.wgacontract2023.org/announcements/2023-mba-ratified",
+    "verified": true,
+    "note": "wgacontract2023.org, Monday October 9, 2023: '99% of WGA members have voted in favor of ratifying the 2023 MBA.' Term Sep 25, 2023 through May 1, 2026."
+  },
+  {
+    "id": "sag-aftra-tv-theatrical-ratification-2023",
+    "kind": "ratification",
+    "union": "SAG-AFTRA",
+    "start": "2023-12-05",
+    "end": null,
+    "title": "SAG-AFTRA members ratify 2023 TV/Theatrical contracts",
+    "source_url": "https://www.sagaftra.org/sag-aftra-members-approve-2023-tvtheatrical-contracts-tentative-agreement",
+    "verified": true,
+    "note": "sagaftra.org, December 5, 2023: 'In national voting completed today, members of SAG-AFTRA ratified the 2023 TV/Theatrical Agreement' (78.33% yes). Effective retroactive to Nov 9, 2023."
+  },
+  {
+    "id": "iatse-basic-agreement-expiry-2024",
+    "kind": "expiry",
+    "union": "IATSE",
+    "start": "2024-07-31",
+    "end": null,
+    "title": "IATSE 2021 Hollywood Basic Agreement expires",
+    "source_url": "https://basic.iatse.net/",
+    "verified": true,
+    "note": "basic.iatse.net timeline: 'JULY 31st 2024 CONTRACT EXPIRES'."
+  },
+  {
+    "id": "iatse-basic-agreement-ratification-2024",
+    "kind": "ratification",
+    "union": "IATSE",
+    "start": "2024-07-18",
+    "end": null,
+    "title": "IATSE members ratify 2024-2027 Hollywood Basic Agreement",
+    "source_url": "https://iatse.net/iatse-members-overwhelmingly-ratify-hollywood-basic-and-area-standards-agreements/",
+    "verified": true,
+    "note": "iatse.net, July 18, 2024: 'members have overwhelmingly voted to ratify both the 2024-2027 Hollywood Basic Agreement and the 2024-2027 Area Standards Agreement, Thursday' (85.9% yes). In effect August 4, 2024."
+  },
+  {
+    "id": "wga-mba-ratification-2026",
+    "kind": "ratification",
+    "union": "WGA",
+    "start": "2026-04-24",
+    "end": null,
+    "title": "WGA members ratify 2026 MBA (no strike)",
+    "source_url": "https://www.wga.org/news-events/news/press/wga-ratifies-2026-minimum-basic-agreement-with-amptp",
+    "verified": true,
+    "note": "wga.org, April 24, 2026: 'WGA members have ratified the 2026 MBA with 90.38% (4,282) voting in favor, and 9.62% (456) voting no.' Term May 2, 2026 through May 1, 2030."
+  },
+  {
+    "id": "wga-mba-expiry-2026",
+    "kind": "expiry",
+    "union": "WGA",
+    "start": "2026-05-01",
+    "end": null,
+    "title": "WGA 2023 MBA expires (successor already ratified)",
+    "source_url": "https://www.wgacontract2023.org/announcements/2023-mba-ratified",
+    "verified": true,
+    "note": "wgacontract2023.org: 'The term of the agreement is from September 25, 2023 through May 1, 2026.'"
+  },
+  {
+    "id": "sag-aftra-tv-theatrical-ratification-2026",
+    "kind": "ratification",
+    "union": "SAG-AFTRA",
+    "start": "2026-06-04",
+    "end": null,
+    "title": "SAG-AFTRA members ratify 2026 TV/Theatrical contracts (no strike)",
+    "source_url": "https://www.sagaftra.org/sag-aftra-members-approve-2026-tvtheatrical-contracts-tentative-agreement",
+    "verified": true,
+    "note": "sagaftra.org, June 4, 2026: 'In national voting completed today, members of SAG-AFTRA ratified the 2026 TV/Theatrical Agreement' (91.42% yes). Tentative agreement May 2, 2026; National Board approved May 11."
+  },
+  {
+    "id": "sag-aftra-tv-theatrical-expiry-2026",
+    "kind": "expiry",
+    "union": "SAG-AFTRA",
+    "start": "2026-06-30",
+    "end": null,
+    "title": "SAG-AFTRA 2023 TV/Theatrical contracts expire (successor already ratified)",
+    "source_url": "https://www.sagaftra.org/sag-aftra-members-approve-2023-tvtheatrical-contracts-tentative-agreement",
+    "verified": true,
+    "note": "sagaftra.org: 'The agreement is effective retroactive to Nov. 9, 2023, and expires June 30, 2026.'"
+  },
+  {
+    "id": "iatse-basic-agreement-expiry-2027",
+    "kind": "expiry",
+    "union": "IATSE",
+    "start": "2027-07-31",
+    "end": null,
+    "title": "IATSE 2024 Hollywood Basic Agreement expires",
+    "source_url": "https://iatse.net/wp-content/uploads/2024/07/2024-SUMMARY-OF-BASIC-AGREEMENT-NEGOTIATIONS_7.9.24.pdf",
+    "verified": true,
+    "note": "iatse.net summary PDF, item 12: 'The term of the Agreement will be from August 1, 2024-July 31, 2027.'"
+  },
+  {
+    "id": "wga-mba-expiry-2030",
+    "kind": "expiry",
+    "union": "WGA",
+    "start": "2030-05-01",
+    "end": null,
+    "title": "WGA 2026 MBA expires",
+    "source_url": "https://www.wga.org/news-events/news/press/wga-ratifies-2026-minimum-basic-agreement-with-amptp",
+    "verified": true,
+    "note": "wga.org: term of the 2026 MBA is May 2, 2026 through May 1, 2030."
+  },
+  {
+    "id": "sag-aftra-tv-theatrical-expiry-2030",
+    "kind": "expiry",
+    "union": "SAG-AFTRA",
+    "start": "2030-06-30",
+    "end": null,
+    "title": "SAG-AFTRA 2026 TV/Theatrical contracts expire",
+    "source_url": "https://www.sagaftra.org/sag-aftra-members-approve-2026-tvtheatrical-contracts-tentative-agreement",
+    "verified": true,
+    "note": "sagaftra.org: 'The agreement is effective on July 1, 2026, and expires June 30, 2030.'"
+  }
+]
