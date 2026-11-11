@@ -1,0 +1,129 @@
+{
+  "records": [
+    {
+      "id": "la-film-work-2026-10-03-jobs",
+      "edition": "2026-10-03",
+      "slug": "la-film-work",
+      "title": "Payroll jobs",
+      "unit": "jobs",
+      "geography": "Los Angeles–Long Beach–Glendale metropolitan division",
+      "population": "Payroll jobs in motion picture and sound recording industries (NAICS 512)",
+      "definition": "All-employee payroll jobs, not seasonally adjusted. This is a count of jobs, not unique workers.",
+      "limitation": "Includes sound recording and occupations beyond actors. Does not measure freelance livelihoods, individual earnings, or whether a particular worker can find work.",
+      "topics": [
+        "work",
+        "livelihoods"
+      ],
+      "synonyms": [
+        "jobs",
+        "employment",
+        "payroll",
+        "crews",
+        "los angeles",
+        "making a living",
+        "actors",
+        "work"
+      ],
+      "period_from": "2019-08",
+      "period_to": "2026-08",
+      "value_from": 129600.0,
+      "value_to": 95700.0,
+      "change": "26.2% lower",
+      "vintage_to": "2026-09-21",
+      "preliminary": true,
+      "sources": [
+        {
+          "name": "U.S. Bureau of Labor Statistics",
+          "title": "CES series SMU06310845051200001",
+          "url": "https://data.bls.gov/timeseries/SMU06310845051200001",
+          "attribution": "Source: U.S. Bureau of Labor Statistics"
+        }
+      ],
+      "href": "../evidence/la-film-work/2026-10-03/#jobs",
+      "citation": "Lauren Neal, “What is happening to film work in LA?” The Hollywood SIGN, evidence edition 2026-10-03. Payroll jobs: 95,700 jobs (Aug 2026) versus 129,600 (Aug 2019); 26.2% lower. Geography: Los Angeles–Long Beach–Glendale metropolitan division. Population: Payroll jobs in motion picture and sound recording industries (NAICS 512). Includes a preliminary observation. Source vintages: 2026-09-21 and 2026-09-21. Source: U.S. Bureau of Labor Statistics. Method comparison-1.",
+      "search": "Payroll jobs All-employee payroll jobs, not seasonally adjusted. This is a count of jobs, not unique workers. Includes sound recording and occupations beyond actors. Does not measure freelance livelihoods, individual earnings, or whether a particular worker can find work. Los Angeles–Long Beach–Glendale metropolitan division Payroll jobs in motion picture and sound recording industries (NAICS 512) What is happening to film work in LA? work livelihoods jobs employment payroll crews los angeles making a living actors work"
+    },
+    {
+      "id": "la-film-work-2026-10-03-shoot-days",
+      "edition": "2026-10-03",
+      "slug": "la-film-work",
+      "title": "On-location shoot days",
+      "unit": "shoot days",
+      "geography": "Greater Los Angeles jurisdictions served by FilmLA",
+      "population": "Permitted on-location activity reported by FilmLA across all reported categories",
+      "definition": "FilmLA shoot days: permitted filming activity at a location on a day. Multiple locations can contribute multiple shoot days to one production.",
+      "limitation": "Coverage follows FilmLA's permitting jurisdictions. This is not soundstage occupancy, unique productions, employment, or a complete count of filming everywhere in LA.",
+      "topics": [
+        "production"
+      ],
+      "synonyms": [
+        "shoot days",
+        "filming",
+        "on location",
+        "permits",
+        "filmla",
+        "production",
+        "los angeles"
+      ],
+      "period_from": "2019Q2",
+      "period_to": "2026Q2",
+      "value_from": 8632.0,
+      "value_to": 4711.0,
+      "change": "45.4% lower",
+      "vintage_to": "2026-09-21",
+      "preliminary": true,
+      "sources": [
+        {
+          "name": "FilmLA",
+          "title": "Q4 and full-year 2025 production report",
+          "url": "https://filmla.com/wp-content/uploads/FilmLA-research-Q4-YTD-2025-report.pdf#page=9",
+          "attribution": "Source: FilmLA"
+        },
+        {
+          "name": "FilmLA",
+          "title": "Q1 2026 production report, released April 28, 2026",
+          "url": "https://filmla.com/wp-content/uploads/FilmLA-News-Release_4.28.26-ResearchUpdate-q1-2026.pdf#page=1",
+          "attribution": "Source: FilmLA"
+        },
+        {
+          "name": "FilmLA",
+          "title": "Q2 2026 research update, released July 23, 2026",
+          "url": "https://filmla.com/california-film-tax-incentives-continue-to-create-job-opportunities-in-scripted-production/",
+          "attribution": "Source: FilmLA"
+        }
+      ],
+      "href": "../evidence/la-film-work/2026-10-03/#shoot-days",
+      "citation": "Lauren Neal, “What is happening to film work in LA?” The Hollywood SIGN, evidence edition 2026-10-03. On-location shoot days: 4,711 shoot days (Q2 2026) versus 8,632 (Q2 2019); 45.4% lower. Geography: Greater Los Angeles jurisdictions served by FilmLA. Population: Permitted on-location activity reported by FilmLA across all reported categories. Includes a preliminary observation. Source vintages: 2026-09-21 and 2026-09-21. Source: FilmLA. Source: FilmLA. Source: FilmLA. Method comparison-1.",
+      "search": "On-location shoot days FilmLA shoot days: permitted filming activity at a location on a day. Multiple locations can contribute multiple shoot days to one production. Coverage follows FilmLA's permitting jurisdictions. This is not soundstage occupancy, unique productions, employment, or a complete count of filming everywhere in LA. Greater Los Angeles jurisdictions served by FilmLA Permitted on-location activity reported by FilmLA across all reported categories What is happening to film work in LA? production shoot days filming on location permits filmla production los angeles"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "actor-income",
+      "topics": [
+        "livelihoods"
+      ],
+      "title": "Actor income and hours",
+      "question": "What do people classified as actors earn, and how many hours do they work?",
+      "note": "No reviewed actor-income series. Payroll jobs count jobs in motion picture and sound recording industries. They are not earnings, and they are not a count of actors."
+    },
+    {
+      "id": "ownership",
+      "topics": [
+        "control"
+      ],
+      "title": "Who controls the companies",
+      "question": "Which companies share a parent, and how concentrated is the business?",
+      "note": "No reviewed ownership or concentration series. Studio revenue on the lot is a quarterly total for a basket of public companies. It does not name a parent or a market share."
+    },
+    {
+      "id": "participation",
+      "topics": [
+        "audiences"
+      ],
+      "title": "Who goes to the movies",
+      "question": "Who participates in moviegoing, and what keeps people away?",
+      "note": "No reviewed participation survey. Weekend grosses and Netflix hours measure commercial attention for defined lists. They do not measure who attended or whether people liked the work."
+    }
+  ]
+}
