@@ -1,0 +1,36 @@
+:root{--paper:#efe9d8;--panel:#f7f3e8;--ink:#161c1f;--muted:#52615b;--green:#315f54;--line:#b7c0b3;--accent:#a8412b;--mono:'IBM Plex Mono',ui-monospace,monospace;--display:'Barlow Condensed','Arial Narrow',Impact,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 Arial,sans-serif}
+a{color:var(--green)}
+button,input{font:inherit}
+button{min-height:44px;padding:8px 14px;border:1px solid var(--green);background:transparent;color:var(--green);cursor:pointer}
+button[aria-pressed="true"]{background:var(--green);color:var(--panel)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+[hidden]{display:none!important}
+.skip{position:absolute;left:16px;top:-80px;background:var(--panel);padding:8px}
+.skip:focus{top:8px}
+.masthead{display:flex;justify-content:space-between;gap:24px;align-items:center;padding:22px 32px;background:var(--ink);color:var(--paper)}
+.brand{color:var(--paper);text-decoration:none;font:700 28px/1 var(--display)}
+.brand span{display:block;margin-top:6px;font:10px/1.4 var(--mono);color:#a6b6ac}
+.masthead nav{display:flex;gap:18px;font:12px var(--mono)}
+.masthead nav a{color:var(--paper);text-decoration:none}
+main{max-width:880px;margin:0 auto;padding:28px 20px 64px}
+h1,h2{font-family:var(--display);font-weight:600;line-height:1;letter-spacing:-.02em}
+h1{font-size:clamp(46px,8vw,78px);margin:8px 0 16px}
+h2{font-size:clamp(32px,5vw,46px);margin:8px 0 12px}
+.eyebrow{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.dek{font-size:20px;max-width:40rem}
+.meta,.limit{color:var(--muted)}
+.search{display:grid;gap:12px;margin:28px 0}
+.search input{width:100%;min-height:48px;padding:10px 12px;border:1px solid var(--ink);background:var(--panel)}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.record,.gap,.packet{padding:28px 0;border-top:1px solid var(--line)}
+.reading{font:600 42px/1 var(--display);margin:8px 0}
+.reading span{font:16px var(--mono)}
+.pick{display:block;margin-bottom:8px;font:13px var(--mono)}
+.notice{padding:12px 0}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.copy-fallback{width:100%;min-height:88px}
+footer{padding:28px 20px 48px;background:var(--ink);color:#d5ddd6;font-size:14px}
+footer p{max-width:880px;margin:8px auto}
+@media(max-width:700px){.masthead{align-items:flex-start;flex-direction:column}.masthead nav a{padding:8px 0}}
