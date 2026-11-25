@@ -1,0 +1,81 @@
+{
+  "source": "Sundance Institute feature-film lineup announcements on sundance.org (one post each December for the festival the following January)",
+  "period_rule": "period = the festival year (the January the festival takes place); the lineup post appears the preceding December",
+  "units": {"submissions": "all submissions (features, shorts, episodic, New Frontier) the programme was selected from", "feature_submissions": "feature-length film submissions among them", "features_selected": "feature-length films in the announced lineup"},
+  "read_on": "2026-09-21",
+  "note": "Each row is the figure in the sundance.org lineup post as it reads today; a few counts differ from the trade-press number on announcement day because Sundance later added or withdrew titles (noted per row). Shorts, episodic and New Frontier selections are not counted.",
+  "rows": [
+    {
+      "festival_year": 2026,
+      "submissions": 16201,
+      "feature_submissions": 4255,
+      "features_selected": 90,
+      "published": "2025-12-10",
+      "source_url": "https://www.sundance.org/blogs/2026-sundance-film-festival-unveils-97-projects-selected-for-the-feature-film-and-episodic-program/",
+      "quote": "announced 90 feature films and seven episodic projects participating in the 2026 Sundance Film Festival ... The 2026 Sundance Film Festival program was selected from 16,201 submissions from 164 countries or territories, including 4,255 feature-length films.",
+      "verified": true
+    },
+    {
+      "festival_year": 2025,
+      "submissions": 15775,
+      "feature_submissions": 4138,
+      "features_selected": 88,
+      "published": "2024-12-11",
+      "source_url": "https://www.sundance.org/blogs/2025-sundance-film-festival-reveals-93-projects-for-feature-film-and-episodic-programs/",
+      "quote": "88 feature films and six episodic projects selected for the 2025 Sundance Film Festival ... curated from 15,775 submissions from 156 countries or territories, including 4,138 feature-length films",
+      "verified": true
+    },
+    {
+      "festival_year": 2024,
+      "submissions": 17435,
+      "feature_submissions": 4410,
+      "features_selected": 82,
+      "published": "2023-12-06",
+      "source_url": "https://www.sundance.org/blogs/2024-sundance-film-festival-announces-91-projects-selected-for-the-feature-films-episodic-and-new-frontier-lineup-for-40th-edition/",
+      "quote": "the 82 films, eight episodic titles, and a New Frontier interactive experience selected for the 2024 Sundance Film Festival ... selected from a record number of 17,435 submissions from 153 countries or territories, including 4,410 feature-length films",
+      "verified": true
+    },
+    {
+      "festival_year": 2023,
+      "submissions": 15855,
+      "feature_submissions": 4061,
+      "features_selected": 99,
+      "published": "2022-12-07",
+      "source_url": "https://www.sundance.org/blogs/2023-sundance-film-festival-announces-lineup-of-99-feature-films/",
+      "quote": "99 feature films announced today ... These films were selected from 15,855 submissions, including 4,061 feature-length films.",
+      "note": "trade press reported 101 features on announcement day; the sundance.org post now reads 99",
+      "verified": true
+    },
+    {
+      "festival_year": 2022,
+      "submissions": 14849,
+      "feature_submissions": 3762,
+      "features_selected": 82,
+      "published": "2021-12-09",
+      "source_url": "https://www.sundance.org/blogs/2022-sundance-film-festival-feature-films-indie-episodic-new-frontier-lineups-announced/",
+      "quote": "82 features, 6 Indie Episodic, 15 New Frontier Projects to Debut ... These films were selected from 14,849 submissions, including 3,762 feature-length films.",
+      "verified": true
+    },
+    {
+      "festival_year": 2021,
+      "submissions": 14092,
+      "feature_submissions": 3500,
+      "features_selected": 71,
+      "published": "2020-12-15",
+      "source_url": "https://www.sundance.org/blogs/2021-sundance-film-festival-full-program-announced-3/",
+      "quote": "the full 2021 slate of works, including 71 feature-length films, representing 29 countries ... These films were selected from 14,092 submissions including 3,500 feature-length films.",
+      "note": "a later 'announces additional films' post brought the online festival to 72 features; the lineup-day count is kept",
+      "verified": true
+    },
+    {
+      "festival_year": 2020,
+      "submissions": 15100,
+      "feature_submissions": 3853,
+      "features_selected": 118,
+      "published": "2019-12-04",
+      "source_url": "https://www.sundance.org/blogs/2020-sundance-film-festival-118-feature-films-announced-3/",
+      "quote": "Announced today: 118 feature-length films, representing 27 countries and 44 first-time feature filmmakers. ... These films were selected from a record high of 15,100 submissions including 3,853 feature-length films.",
+      "verified": true
+    }
+  ]
+}
